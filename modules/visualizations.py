@@ -11,13 +11,17 @@ class DashboardVisualizations:
         print("DEBUG: Criando cartões KPI")
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label="Total de Chamados", value=f"{kpis.get(\"total_chamados\", 0):,}")
+            # CORREÇÃO: Uso de aspas simples para evitar o caractere de escape \
+            st.metric(label="Total de Chamados", value=f"{kpis.get('total_chamados', 0):,}")
         with col2:
-            st.metric(label="Chamados Abertos", value=f"{kpis.get(\"chamados_abertos\", 0):,}")
+            # CORREÇÃO: Uso de aspas simples
+            st.metric(label="Chamados Abertos", value=f"{kpis.get('chamados_abertos', 0):,}")
         with col3:
-            st.metric(label="SLA Atendido", value=f"{kpis.get(\"sla_atendido_percent\", 0):.1f}%")
+            # CORREÇÃO: Uso de aspas simples
+            st.metric(label="SLA Atendido", value=f"{kpis.get('sla_atendido_percent', 0):.1f}%")
         with col4:
-            st.metric(label="Tempo Médio (h)", value=f"{kpis.get(\"tempo_medio_resolucao\", 0):.1f}")
+            # CORREÇÃO: Uso de aspas simples
+            st.metric(label="Tempo Médio (h)", value=f"{kpis.get('tempo_medio_resolucao', 0):.1f}")
 
     def create_category_chart(self, df):
         print("DEBUG: Criando gráfico de categoria")
